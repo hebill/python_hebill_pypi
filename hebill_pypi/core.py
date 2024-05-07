@@ -168,14 +168,17 @@ class Pypi:
 
     def clear(self):
         # 删除目录及其内容
-        if os.path.isdir('build'):
+        try:
+            # if os.path.isdir('build'):
             shutil.rmtree('build')
-        if os.path.isdir('dist'):
+            # if os.path.isdir('dist'):
             shutil.rmtree('dist')
-        if os.path.isdir(f'{self.name}.egg-info'):
+            # if os.path.isdir(f'{self.name}.egg-info'):
             shutil.rmtree(f'{self.name}.egg-info')
-        if os.path.isfile(self.setup_py):
+            # if os.path.isfile(self.setup_py):
             os.remove(self.setup_py)
+        except Exception:
+            pass
 
     def build(self):
         self.clear()

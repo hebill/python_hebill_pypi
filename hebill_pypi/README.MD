@@ -34,7 +34,13 @@ password = pypi-(Your pypi key)
     AUTHOR_EMAIL = 'email@project.url'
     AUTHOR_URL = 'http://www.project.url/'
     ```
-3. 编写 pypi.py 内容
+   
+3. 在__init__.py中加载
+    ```python
+    from .core import MyModule
+    from .constants import *
+    ```
+4. 编写 pypi.py 内容
    ```python
    from hebill_pypi import Pypi
    import myProject
@@ -43,4 +49,4 @@ password = pypi-(Your pypi key)
    pypi.pack()
    ```
 
-4. 运行 pypi.py
+5. 运行 pypi.py
